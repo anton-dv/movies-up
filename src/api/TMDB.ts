@@ -31,11 +31,10 @@ export class TMDB {
     query?: string,
   ): Promise<Page | ErrorStatus> {
     const locations = TMDBPageLocator.locateTargetPage(current);
-
     const tmdbPages = TMDBPageLocator.getPagesForLocations(locations);
     const dataPages = await TMDBData.getPagesData({ tmdbPages, query, endpoint });
-
     if (isErrorStatus(dataPages as ErrorStatus)) return dataPages as ErrorStatus;
+    if (!(dataPages as PageData[]).length) return ErrorStatus.EMPTY;
 
     const moviesData = TMDBMovieLocator.getMoviesData(dataPages as PageData[], locations);
     const genres = await TMDBData.getGenres();

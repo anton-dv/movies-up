@@ -2,6 +2,7 @@ import { FC, useEffect, useLayoutEffect, useState } from "react";
 import { GenreView } from "./GenreView";
 
 import classes from "./genre-view.module.scss";
+import { createId } from "../../../utils/createId";
 
 export type GenreViewListProps = {
   names: string[];
@@ -9,13 +10,13 @@ export type GenreViewListProps = {
 
 export const GenreViewList: FC<GenreViewListProps> = ({ names }) => {
   const [content, setContent] = useState<string[]>([]);
+  const [componentId] = useState(`${names.join("-")}-${createId()}`);
 
-  const genreListId = names.join("-");
-  const genreListMeasureId = `${genreListId}-measure-id`;
+  const componentMeasureId = `${componentId}-measure-id`;
 
   const getRatio = () => {
-    const measureBlock = document.getElementById(genreListMeasureId);
-    const listBlock = document.getElementById(genreListId);
+    const measureBlock = document.getElementById(componentMeasureId);
+    const listBlock = document.getElementById(componentId);
     const measure = measureBlock?.getBoundingClientRect().width;
     const list = listBlock?.getBoundingClientRect().width;
 
@@ -47,8 +48,8 @@ export const GenreViewList: FC<GenreViewListProps> = ({ names }) => {
   }, [names]);
 
   return (
-    <div id={genreListId} className={classes["genre-view-list"]}>
-      <div id={genreListMeasureId} className={classes["genre-view-list__measure"]}>
+    <div id={componentId} className={classes["genre-view-list"]}>
+      <div id={componentMeasureId} className={classes["genre-view-list__measure"]}>
         {names.map((name, index) => (
           <GenreView name={name} key={index} />
         ))}

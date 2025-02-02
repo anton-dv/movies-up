@@ -41,7 +41,7 @@ export const useAction = () => {
         (rated && !isErrorStatus(rated as ErrorStatus) && (rated as Page).movies) || [];
 
       const include = !!movies.find(movie => movie.id === id);
-      const expectLength = (rated as Page).totalItems + (include ? 0 : 1);
+      const expectLength = ((rated as Page).totalItems || 0) + (include ? 0 : 1);
 
       const current = (rated as Page).current || 1;
 
@@ -52,7 +52,6 @@ export const useAction = () => {
         attempts++;
 
         const status = await createRequest<ErrorStatus>(path, query, body);
-
         if (status === ErrorStatus.NO_INTERNET) {
           setSearchPage(status);
           setRatedPage(status);
@@ -65,15 +64,15 @@ export const useAction = () => {
           }, 1000);
         });
 
-        if (result === ErrorStatus.NO_INTERNET) {
+        const ok = !isErrorStatus(result as ErrorStatus) && result;
+        if (ok && (result as Page).totalItems === expectLength) {
           setRatedPage(result);
-          setSearchPage(result);
           break;
         }
 
-        const pages = (result as Page) || null;
-        if (pages && pages.totalItems === expectLength) {
+        if (result === ErrorStatus.NO_INTERNET) {
           setRatedPage(result);
+          setSearchPage(result);
           break;
         }
 

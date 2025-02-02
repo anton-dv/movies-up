@@ -1,6 +1,7 @@
 import { FC, useEffect, useLayoutEffect, useState } from "react";
 
 import classes from "./text-block.module.scss";
+import { createId } from "../../../utils/createId";
 
 export type TextBlockProps = {
   text?: string;
@@ -12,12 +13,12 @@ export const TextBlock: FC<TextBlockProps> = ({ text, padding, id }) => {
   const [content, setContent] = useState("");
   const [height, setHeight] = useState({ block: 0, measure: 0 });
 
-  const textBlockId = `text_block-${id}`;
-  const measureBlockId = `${textBlockId}-measure`;
+  const [componentId] = useState(`text_block-${id}-${createId()}`);
+  const componentMeasureId = `${componentId}-measure`;
 
   const setTextHeight = () => {
-    const measureBlock = document.getElementById(measureBlockId);
-    const textBlock = document.getElementById(textBlockId);
+    const measureBlock = document.getElementById(componentMeasureId);
+    const textBlock = document.getElementById(componentId);
     const measure = measureBlock?.getBoundingClientRect().height;
     const block = textBlock?.getBoundingClientRect().height;
 
@@ -54,10 +55,10 @@ export const TextBlock: FC<TextBlockProps> = ({ text, padding, id }) => {
   return (
     <>
       <div
-        id={textBlockId}
+        id={componentId}
         className={`${classes["text-block"]} ${padding ? classes["text-block--padding"] : ""}`}
       >
-        <p id={measureBlockId} className={classes["text-block__measure"]}>
+        <p id={componentMeasureId} className={classes["text-block__measure"]}>
           {text}
         </p>
         <p>{content}</p>
