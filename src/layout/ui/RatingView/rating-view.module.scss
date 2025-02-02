@@ -1,0 +1,24 @@
+.rating-view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 10px;
+  right: 7px;
+
+  border-radius: 50px;
+  outline-style: solid;
+  outline-width: 2px;
+
+  font-size: 12px;
+  line-height: 22px;
+
+  @media (max-width: 576px) {
+    width: 27px;
+    height: 27px;
+    top: 6px;
+  }
+}

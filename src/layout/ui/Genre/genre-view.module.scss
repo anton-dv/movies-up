@@ -1,0 +1,36 @@
+.genre-view {
+  outline: 1px solid #d9d9d9;
+  background-color: #fafafa;
+  border-radius: 1px;
+  padding: 2px 4px 3px;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &:focus {
+    outline: 1px solid #d9d9d9;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 11px;
+    line-height: 13px;
+  }
+}
+
+.genre-view-list {
+  display: flex;
+  gap: 10px;
+  margin-left: 1px;
+  margin-right: 10px;
+
+  @media (max-width: 576px) {
+    margin-left: 73px;
+  }
+}
+
+.genre-view-list__measure {
+  position: absolute;
+  display: flex;
+  gap: 10px;
+  margin-left: 1px;
+  visibility: hidden;
+}

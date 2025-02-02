@@ -1,0 +1,11 @@
+.date-view {
+  // padding-bottom: 9px;
+  font-size: 12px;
+  line-height: 22px;
+  color: #827e7e;
+
+  @media (max-width: 576px) {
+    padding-left: 73px;
+    font-size: 11px;
+  }
+}

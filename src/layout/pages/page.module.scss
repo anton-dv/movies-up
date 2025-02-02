@@ -1,0 +1,10 @@
+.page  {
+  z-index: 1;
+  opacity: 1;
+}
+
+.page--hidden {
+  z-index: 0;
+  top: -200%;
+  position: absolute;
+}

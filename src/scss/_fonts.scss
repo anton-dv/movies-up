@@ -1,0 +1,17 @@
+$path: '../assets/';
+
+@mixin font-inter($postfix, $weight) {
+  $Inter: 'Inter';
+
+  @font-face {
+    font-family: $Inter;
+    src: local('#{$Inter}#{$postfix}'), local('#{$Inter}-#{$postfix}'),
+      url('#{$path}#{$Inter}-#{$postfix}.woff2') format('woff2'),
+      url('#{$path}#{$Inter}-#{$postfix}.woff') format('woff');
+    font-weight: $weight;
+    font-style: normal;
+    font-display: swap;
+  }
+}
+
+@include font-inter('Regular', 400);

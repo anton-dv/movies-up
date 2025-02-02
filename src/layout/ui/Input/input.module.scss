@@ -1,0 +1,15 @@
+.input {
+  border-radius: 4px;
+}
+
+.input-wrapper {
+  padding-bottom: 34px;
+
+  @media (max-width: 768px) {
+    padding-bottom: 22px;
+  }
+
+  @media (max-width: 576px) {
+    padding-bottom: 15px;
+  }
+}

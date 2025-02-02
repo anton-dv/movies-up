@@ -1,0 +1,9 @@
+.rating-stars {
+  display: flex;
+  justify-content: space-around;
+  max-width: 260px;
+
+  @media (max-width: 768px) {
+    margin-left: auto;
+  }
+}

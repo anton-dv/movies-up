@@ -1,0 +1,72 @@
+@use "./fonts";
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 100%;
+  vertical-align: baseline;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
+  appearance: none;
+
+  &::-moz-focus-inner {
+    border: none;
+  }
+}
+
+body {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.4em;
+  background-color: white;
+  color: #111111;
+  min-width: 230px;
+  max-width: 950px;
+  margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 300;
+}
+
+:focus {
+  outline: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+:where(.css-dev-only-do-not-override-1h1j1xb).ant-rate .ant-rate-star:not(:last-child) {
+  margin-inline-end: 0;
+}
+
+:where(.css-dev-only-do-not-override-1htoz2s).ant-col {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 12px;
+}
+
+:where(.css-dev-only-do-not-override-1htoz2s).ant-image {
+  height: 100%;
+}
+
+:where(.css-dev-only-do-not-override-qx94s7).ant-pagination .ant-pagination-item-active a {
+  color: white;
+
+  &:hover {
+    color: white;
+  }
+}
+
+:where(.css-dev-only-do-not-override-qx94s7).ant-pagination.ant-pagination-mini .ant-pagination-options {
+  display: none;
+}

@@ -1,0 +1,32 @@
+.text-block {
+  flex-grow: 1;
+  overflow: hidden;
+  padding-right: 20px;
+  line-height: 22px;
+  font-weight: 400;
+
+  @media (max-width: 576px) {
+    padding-top: 20px;
+    padding-left: 2px;
+  }
+}
+
+.text-block__measure {
+  position: absolute;
+  padding-right: 35px;
+  padding-top: 5px;
+  visibility: hidden;
+
+  @media (max-width: 576px) {
+    padding-top: 60px;
+    padding-left: 2px;
+  }
+}
+
+.text-block--padding {
+  padding-top: 30px;
+
+  @media (max-width: 576px) {
+    padding-top: 40px;
+  }
+}
