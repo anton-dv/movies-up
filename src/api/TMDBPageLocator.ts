@@ -20,7 +20,7 @@ export class TMDBPageLocator {
   }
 
   static getTotal(pages: PageData[]): number {
-    return this.locateTotalPage(pages[0].total_results);
+    return pages[0] ? this.locateTotalPage(pages[0].total_results) : 0;
   }
 
   static locateTotalPage(tmdbTotalItems: number) {
