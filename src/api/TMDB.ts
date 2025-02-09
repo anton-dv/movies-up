@@ -49,6 +49,7 @@ export class TMDB {
         about: data.overview,
         image: data.poster_path,
         rating: data.vote_average,
+        rated: data.rating,
         date: data.release_date ? new Date(data.release_date) : undefined,
         genres: genres ? TMDBData.getNamesForGenres(genres as GenreData[], data.genre_ids) : [],
       }));

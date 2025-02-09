@@ -43,7 +43,7 @@ body {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .ant-rate-star.ant-rate-star-full,
@@ -70,4 +70,14 @@ body {
 
 .ant-pagination.ant-pagination-center.ant-pagination-mini .ant-pagination-options {
   display: none !important;
+}
+
+.ant-pagination-jump-prev.ant-pagination-jump-prev-custom-icon,
+.ant-pagination-jump-next.ant-pagination-jump-next-custom-icon {
+  display: none !important;
+}
+
+.ant-pagination-item.ant-pagination-item-before-jump-next,
+.ant-pagination-item.ant-pagination-item-after-jump-prev {
+  display: inline-block !important;
 }

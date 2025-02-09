@@ -5,5 +5,6 @@ export type Movie = {
   genres?: string[];
   image?: string;
   rating?: number;
+  rated?: number;
   date?: Date;
 };

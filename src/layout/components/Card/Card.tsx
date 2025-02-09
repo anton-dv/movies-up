@@ -18,12 +18,13 @@ export type CardProps = {
   title?: string;
   image?: string;
   rating?: number;
+  rated?: number;
   about?: string;
   genres?: string[];
   date?: Date;
 };
 
-export const Card: FC<CardProps> = ({ id, title, image, rating, about, genres, date }) => {
+export const Card: FC<CardProps> = ({ id, title, image, rating, rated, about, genres, date }) => {
   const [, setPage] = useSearch();
   const [loading, setLoading] = useState(true);
   const action = useAction();
@@ -59,7 +60,7 @@ export const Card: FC<CardProps> = ({ id, title, image, rating, about, genres, d
           <TextBlock text={about} padding={!genres} id={title as string} />
         </div>
         <div className={classes.card__rating}>
-          <RatingStars value={rating} onRate={onRate} />
+          <RatingStars value={rated || rating} onRate={onRate} />
         </div>
       </div>
     </div>
